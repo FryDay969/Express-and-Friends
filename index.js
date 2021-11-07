@@ -34,7 +34,7 @@ const printUser = (req,res) => {
 
 const userDelete = (req,res) =>{
     if(req.url.match('/user/id:')){
-        let idFromUrl = req.url.replace('/user/id:', '');
+        let idFromUrl = req.params.id;
         for (i=0; i<users.length; i++){
             if (idFromUrl === users[i].id){
                 users.splice(i,1)
@@ -50,7 +50,7 @@ const userDelete = (req,res) =>{
 
 const userUpdate = (req,res) => {
     if(req.url.match('/user/id:')){
-        let idFromUrl = req.url.replace('/user/id:', '');
+        let idFromUrl = req.params.id;
         for (i=0; i<users.length; i++){
             if (idFromUrl === users[i].id){
                 users[i].name = req.body.name;
